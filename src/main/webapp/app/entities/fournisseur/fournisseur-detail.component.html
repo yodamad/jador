@@ -1,0 +1,50 @@
+
+<div *ngIf="fournisseur">
+    <h2><span jhiTranslate="jadorApp.fournisseur.detail.title">Fournisseur</span> {{fournisseur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jadorApp.fournisseur.nom">Nom</span></dt>
+        <dd>
+            <span>{{fournisseur.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{fournisseur.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.email">Email</span></dt>
+        <dd>
+            <span>{{fournisseur.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.fax">Fax</span></dt>
+        <dd>
+            <span>{{fournisseur.fax}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{fournisseur.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.codePostal">Code Postal</span></dt>
+        <dd>
+            <span>{{fournisseur.codePostal}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.fournisseur.ville">Ville</span></dt>
+        <dd>
+            <span>{{fournisseur.ville}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'fournisseur/'+ fournisseur.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

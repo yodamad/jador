@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="jadorApp.fournisseur.home.title">Fournisseurs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-fournisseur" [routerLink]="['/', { outlets: { popup: ['fournisseur-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jadorApp.fournisseur.home.createLabel">
+            Create new Fournisseur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="fournisseurs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nom"><span jhiTranslate="jadorApp.fournisseur.nom">Nom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="telephone"><span jhiTranslate="jadorApp.fournisseur.telephone">Telephone</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="jadorApp.fournisseur.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fax"><span jhiTranslate="jadorApp.fournisseur.fax">Fax</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresse"><span jhiTranslate="jadorApp.fournisseur.adresse">Adresse</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="codePostal"><span jhiTranslate="jadorApp.fournisseur.codePostal">Code Postal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ville"><span jhiTranslate="jadorApp.fournisseur.ville">Ville</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fournisseur of fournisseurs ;trackBy: trackId">
+                <td><a [routerLink]="['../fournisseur', fournisseur.id ]">{{fournisseur.id}}</a></td>
+                <td>{{fournisseur.nom}}</td>
+                <td>{{fournisseur.telephone}}</td>
+                <td>{{fournisseur.email}}</td>
+                <td>{{fournisseur.fax}}</td>
+                <td>{{fournisseur.adresse}}</td>
+                <td>{{fournisseur.codePostal}}</td>
+                <td>{{fournisseur.ville}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../fournisseur', fournisseur.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fournisseur/'+ fournisseur.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fournisseur/'+ fournisseur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="fournisseurs && fournisseurs.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

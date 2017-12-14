@@ -1,0 +1,54 @@
+
+<div *ngIf="article">
+    <h2><span jhiTranslate="jadorApp.article.detail.title">Article</span> {{article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jadorApp.article.reference">Reference</span></dt>
+        <dd>
+            <span>{{article.reference}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.marque">Marque</span></dt>
+        <dd>
+            <span>{{article.marque}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.metal">Metal</span></dt>
+        <dd>
+            <span>{{article.metal}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.stock">Stock</span></dt>
+        <dd>
+            <span>{{article.stock}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.prixAchat">Prix Achat</span></dt>
+        <dd>
+            <span>{{article.prixAchat}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.poids">Poids</span></dt>
+        <dd>
+            <span>{{article.poids}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.dateAchat">Date Achat</span></dt>
+        <dd>
+            <span>{{article.dateAchat | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.article.livrePolice">Livre Police</span></dt>
+        <dd>
+            <span>{{article.livrePolice}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

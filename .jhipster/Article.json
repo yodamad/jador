@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "reference",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "marque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "metal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixAchat",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateAchat",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "livrePolice",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214203954",
+    "entityTableName": "article",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

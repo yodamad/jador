@@ -1,0 +1,66 @@
+
+<div *ngIf="devis">
+    <h2><span jhiTranslate="jadorApp.devis.detail.title">Devis</span> {{devis.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jadorApp.devis.date">Date</span></dt>
+        <dd>
+            <span>{{devis.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.retour">Retour</span></dt>
+        <dd>
+            <span>{{devis.retour | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.prix">Prix</span></dt>
+        <dd>
+            <span>{{devis.prix}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.cout">Cout</span></dt>
+        <dd>
+            <span>{{devis.cout}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.validation">Validation</span></dt>
+        <dd>
+            <span>{{devis.validation}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.poids">Poids</span></dt>
+        <dd>
+            <span>{{devis.poids}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.numTicket">Num Ticket</span></dt>
+        <dd>
+            <span>{{devis.numTicket}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.details">Details</span></dt>
+        <dd>
+            <span>{{devis.details}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.article">Article</span></dt>
+        <dd>
+            <div *ngIf="devis.articleId">
+                <a [routerLink]="['/article', devis.articleId]">{{devis.articleId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.devis.fournisseurRef">Fournisseur Ref</span></dt>
+        <dd>
+            <div *ngIf="devis.fournisseurRefId">
+                <a [routerLink]="['/fournisseur', devis.fournisseurRefId]">{{devis.fournisseurRefId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'devis/'+ devis.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

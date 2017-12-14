@@ -1,0 +1,30 @@
+{
+    "jadorApp": {
+        "devis" : {
+            "home": {
+                "title": "Devis",
+                "createLabel": "Créer un nouveau Devis",
+                "createOrEditLabel": "Créer ou éditer un Devis"
+            },
+            "created": "Un nouveau Devis a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Devis avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Devis avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Devis {{ id }} ?"
+            },
+            "detail": {
+                "title": "Devis"
+            },
+            "date": "Date",
+            "retour": "Retour",
+            "prix": "Prix",
+            "cout": "Cout",
+            "validation": "Validation",
+            "poids": "Poids",
+            "numTicket": "Num Ticket",
+            "details": "Details",
+            "article": "Article",
+            "fournisseurRef": "Fournisseur Ref"
+        }
+    }
+}

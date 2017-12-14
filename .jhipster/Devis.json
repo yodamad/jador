@@ -1,0 +1,66 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "article",
+            "otherEntityName": "article",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "devis"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fournisseurRef",
+            "otherEntityName": "fournisseur",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "retour",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "prix",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cout",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "validation",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "numTicket",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214203957",
+    "entityTableName": "devis",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

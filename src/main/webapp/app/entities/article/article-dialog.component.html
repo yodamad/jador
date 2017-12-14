@@ -1,0 +1,86 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myArticleLabel" jhiTranslate="jadorApp.article.home.createOrEditLabel">Create or edit a Article</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!article.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="article.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                [(ngModel)]="article.reference" required/>
+            <div [hidden]="!(editForm.controls.reference?.dirty && editForm.controls.reference?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reference?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.marque" for="field_marque">Marque</label>
+            <input type="text" class="form-control" name="marque" id="field_marque"
+                [(ngModel)]="article.marque" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.metal" for="field_metal">Metal</label>
+            <input type="text" class="form-control" name="metal" id="field_metal"
+                [(ngModel)]="article.metal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.stock" for="field_stock">Stock</label>
+            <input type="number" class="form-control" name="stock" id="field_stock"
+                [(ngModel)]="article.stock" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.prixAchat" for="field_prixAchat">Prix Achat</label>
+            <input type="number" class="form-control" name="prixAchat" id="field_prixAchat"
+                [(ngModel)]="article.prixAchat" required/>
+            <div [hidden]="!(editForm.controls.prixAchat?.dirty && editForm.controls.prixAchat?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.prixAchat?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.prixAchat?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.poids" for="field_poids">Poids</label>
+            <input type="number" class="form-control" name="poids" id="field_poids"
+                [(ngModel)]="article.poids" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.dateAchat" for="field_dateAchat">Date Achat</label>
+            <div class="input-group">
+                <input id="field_dateAchat" type="text" class="form-control" name="dateAchat" ngbDatepicker  #dateAchatDp="ngbDatepicker" [(ngModel)]="article.dateAchat"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="dateAchatDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.article.livrePolice" for="field_livrePolice">Livre Police</label>
+            <input type="text" class="form-control" name="livrePolice" id="field_livrePolice"
+                [(ngModel)]="article.livrePolice" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

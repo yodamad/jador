@@ -1,0 +1,66 @@
+entity Article {
+	reference String required,
+    marque String,
+    metal String,
+    stock Integer,
+    prixAchat Double required,
+    poids Double,
+    dateAchat LocalDate,
+    livrePolice String
+}
+
+entity Vente {
+	date LocalDate required,
+    prix Double required,
+    promotion Double,
+    poids Double
+}
+
+entity Client {
+	nom String required,
+    prenom String,
+    adresse String,
+    codePostal Integer,
+    ville String,
+    email String required,
+    telephone String required,
+}
+
+entity Devis {
+    date LocalDate required,
+    retour LocalDate,
+    prix Double required,
+    cout Double,
+    validation Boolean,
+    poids Double,
+    numTicket String,
+    details String
+}
+
+entity Fournisseur {
+	nom String required,
+    telephone String required,
+    email String,
+    fax String,
+    adresse String,
+    codePostal Integer,
+    ville String required
+}
+
+relationship OneToMany {
+	Client{achat} to Vente{clientRef(id) required}
+    Fournisseur{devis} to Devis{fournisseurRef(id)}
+}
+
+relationship OneToOne {
+	Vente{article required} to Article
+    Devis{article required} to Article
+}
+
+// Set pagination options
+paginate Article, Vente, Fournisseur, Client, Devis with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
