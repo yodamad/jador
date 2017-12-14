@@ -3,6 +3,7 @@ This application was generated using JHipster 4.12.0, you can find documentation
 
 ## Status
 [![Build Status](https://travis-ci.org/yodamad/jador.svg?branch=master)](https://travis-ci.org/yodamad/jador)
+[![codecov](https://codecov.io/gh/yodamad/jador/branch/master/graph/badge.svg)](https://codecov.io/gh/yodamad/jador)
 
 ## Development
 
