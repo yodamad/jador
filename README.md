@@ -1,6 +1,9 @@
 # jador
 This application was generated using JHipster 4.12.0, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.12.0](http://www.jhipster.tech/documentation-archive/v4.12.0).
 
+## Status
+[![Build Status](https://travis-ci.org/yodamad/jador.svg?branch=master)](https://travis-ci.org/yodamad/jador)
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
