@@ -14,5 +14,6 @@ before_deploy :
 deploy:
   provider: heroku
   app: jador
+  run: heroku deploy:jar --jar build/libs/*war
   api_key:
     secure: "55309de3-ef78-4235-8593-0c2a0dbe4c43"
