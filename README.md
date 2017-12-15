@@ -5,6 +5,7 @@ This application was generated using JHipster 4.12.0, you can find documentation
 [![Build Status](https://travis-ci.org/yodamad/jador.svg?branch=master)](https://travis-ci.org/yodamad/jador)
 [![codecov](https://codecov.io/gh/yodamad/jador/branch/master/graph/badge.svg)](https://codecov.io/gh/yodamad/jador)
 [![Known Vulnerabilities](https://snyk.io/test/github/yodamad/jador/badge.svg)](https://snyk.io/test/github/yodamad/jador)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=jador)]
 
 ## Development
 
