@@ -2,8 +2,6 @@ language: java
 sudo: false # faster builds
 
 before_install:
- - pip install --user codecov
- - pip install heroku
  - chmod +x gradlew
 
 after_success:
