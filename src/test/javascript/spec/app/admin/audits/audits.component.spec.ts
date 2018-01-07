@@ -21,7 +21,8 @@ function getDate(isToday= true) {
       }
     }
     const dateString = date.getDate() < 10 ? '0' + date.getDate() : '' + date.getDate();
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${dateString}`;
+    const monthString = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : '' + (date.getMonth() + 1);
+    return `${date.getFullYear()}-${monthString}-${dateString}`;
 }
 
 describe('Component Tests', () => {
