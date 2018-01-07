@@ -11,9 +11,9 @@ sudo: false
 cache:
   directories:
     - node
-    - node_modules
+    # - node_modules
     - $HOME/.gradle
-    - $HOME/.yarn-cache
+    # - $HOME/.yarn-cache
 env:
   global:
     - NODE_VERSION=8.9.1
@@ -42,5 +42,5 @@ notifications:
     on_failure: always  # options: [always|never|change] default: always
     on_start: false     # default: false
 after_success:
- - ./gradlew jacocoTestReport 
+ - ./gradlew jacocoTestReport
  - bash <(curl -s https://codecov.io/bash)
