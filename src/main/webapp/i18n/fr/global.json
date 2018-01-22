@@ -6,7 +6,7 @@
             "home": "Accueil",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entités",
+                "main": "Données",
                 "article": "Article",
                 "vente": "Vente",
                 "client": "Client",
