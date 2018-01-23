@@ -11,7 +11,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface FournisseurMapper extends EntityMapper<FournisseurDTO, Fournisseur> {
 
-    
 
     @Mapping(target = "devis", ignore = true)
     Fournisseur toEntity(FournisseurDTO fournisseurDTO);

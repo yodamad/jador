@@ -14,7 +14,7 @@ module.exports = (options) => {
         // If this URL is left empty (""), then it will be relative to the current context.
         // If you use an API server, in `prod` mode, you will need to enable CORS
         // (see the `jhipster.cors` common JHipster property in the `application-*.yml` configurations)
-        SERVER_API_URL: `""`
+        SERVER_API_URL: `''`
     };
     return {
         resolve: {
@@ -88,7 +88,9 @@ module.exports = (options) => {
                 utils.root('src/main/webapp/app'), {}
             ),
             new CopyWebpackPlugin([
-                { from: './node_modules/swagger-ui/dist', to: 'swagger-ui/dist' },
+                { from: './node_modules/swagger-ui/dist/css', to: 'swagger-ui/dist/css' },
+                { from: './node_modules/swagger-ui/dist/lib', to: 'swagger-ui/dist/lib' },
+                { from: './node_modules/swagger-ui/dist/swagger-ui.min.js', to: 'swagger-ui/dist/swagger-ui.min.js' },
                 { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui' },
                 { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
                 { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },

@@ -11,9 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface ArticleMapper extends EntityMapper<ArticleDTO, Article> {
 
-    
 
-    
 
     default Article fromId(Long id) {
         if (id == null) {

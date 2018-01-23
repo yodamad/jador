@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { Client } from './client.model';
@@ -9,7 +9,7 @@ import { ResponseWrapper, createRequestOption } from '../../shared';
 @Injectable()
 export class ClientService {
 
-    private resourceUrl = SERVER_API_URL + 'api/clients';
+    private resourceUrl =  SERVER_API_URL + 'api/clients';
 
     constructor(private http: Http) { }
 

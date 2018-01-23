@@ -13,7 +13,7 @@ public interface VenteMapper extends EntityMapper<VenteDTO, Vente> {
 
     @Mapping(source = "article.id", target = "articleId")
     @Mapping(source = "clientRef.id", target = "clientRefId")
-    VenteDTO toDto(Vente vente); 
+    VenteDTO toDto(Vente vente);
 
     @Mapping(source = "articleId", target = "article")
     @Mapping(source = "clientRefId", target = "clientRef")
