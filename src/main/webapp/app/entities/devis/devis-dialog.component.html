@@ -1,0 +1,111 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDevisLabel" jhiTranslate="jadorApp.devis.home.createOrEditLabel">Create or edit a Devis</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!devis.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="devis.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.date" for="field_date">Date</label>
+            <div class="input-group">
+                <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="devis.date"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.date?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.retour" for="field_retour">Retour</label>
+            <div class="input-group">
+                <input id="field_retour" type="text" class="form-control" name="retour" ngbDatepicker  #retourDp="ngbDatepicker" [(ngModel)]="devis.retour"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="retourDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.prix" for="field_prix">Prix</label>
+            <input type="number" class="form-control" name="prix" id="field_prix"
+                [(ngModel)]="devis.prix" required/>
+            <div [hidden]="!(editForm.controls.prix?.dirty && editForm.controls.prix?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.prix?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.prix?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.cout" for="field_cout">Cout</label>
+            <input type="number" class="form-control" name="cout" id="field_cout"
+                [(ngModel)]="devis.cout" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.validation" for="field_validation">Validation</label>
+            <input type="checkbox" class="form-control" name="validation" id="field_validation"
+                [(ngModel)]="devis.validation" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.poids" for="field_poids">Poids</label>
+            <input type="number" class="form-control" name="poids" id="field_poids"
+                [(ngModel)]="devis.poids" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.numTicket" for="field_numTicket">Num Ticket</label>
+            <input type="text" class="form-control" name="numTicket" id="field_numTicket"
+                [(ngModel)]="devis.numTicket" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.details" for="field_details">Details</label>
+            <input type="text" class="form-control" name="details" id="field_details"
+                [(ngModel)]="devis.details" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.article" for="field_article">Article</label>
+            <select class="form-control" id="field_article" name="article" [(ngModel)]="devis.articleId" required>
+                <option *ngIf="!editForm.value.article" [ngValue]="null" selected></option>
+                <option [ngValue]="articleOption.id" *ngFor="let articleOption of articles; trackBy: trackArticleById">{{articleOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.article?.dirty && editForm.controls.article?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.article?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jadorApp.devis.fournisseurRef" for="field_fournisseurRef">Fournisseur Ref</label>
+            <select class="form-control" id="field_fournisseurRef" name="fournisseurRef" [(ngModel)]="devis.fournisseurRefId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="fournisseurOption.id" *ngFor="let fournisseurOption of fournisseurs; trackBy: trackFournisseurById">{{fournisseurOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

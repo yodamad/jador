@@ -1,0 +1,50 @@
+
+<div *ngIf="client">
+    <h2><span jhiTranslate="jadorApp.client.detail.title">Client</span> {{client.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jadorApp.client.nom">Nom</span></dt>
+        <dd>
+            <span>{{client.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{client.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{client.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.codePostal">Code Postal</span></dt>
+        <dd>
+            <span>{{client.codePostal}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.ville">Ville</span></dt>
+        <dd>
+            <span>{{client.ville}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.email">Email</span></dt>
+        <dd>
+            <span>{{client.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="jadorApp.client.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{client.telephone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'client/'+ client.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,26 @@
+{
+    "jadorApp": {
+        "vente" : {
+            "home": {
+                "title": "Ventes",
+                "createLabel": "Créer un nouveau Vente",
+                "createOrEditLabel": "Créer ou éditer un Vente"
+            },
+            "created": "Un nouveau Vente a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Vente avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Vente avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Vente {{ id }} ?"
+            },
+            "detail": {
+                "title": "Vente"
+            },
+            "date": "Date",
+            "prix": "Prix",
+            "promotion": "Promotion",
+            "poids": "Poids",
+            "article": "Article",
+            "clientRef": "Client Ref"
+        }
+    }
+}

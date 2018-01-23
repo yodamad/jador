@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="jadorApp.article.home.title">Articles</span>
+        <button class="btn btn-primary float-right jh-create-entity create-article" [routerLink]="['/', { outlets: { popup: ['article-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jadorApp.article.home.createLabel">
+            Create new Article
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="articles">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="reference"><span jhiTranslate="jadorApp.article.reference">Reference</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="marque"><span jhiTranslate="jadorApp.article.marque">Marque</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="metal"><span jhiTranslate="jadorApp.article.metal">Metal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="stock"><span jhiTranslate="jadorApp.article.stock">Stock</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="prixAchat"><span jhiTranslate="jadorApp.article.prixAchat">Prix Achat</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="poids"><span jhiTranslate="jadorApp.article.poids">Poids</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateAchat"><span jhiTranslate="jadorApp.article.dateAchat">Date Achat</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="livrePolice"><span jhiTranslate="jadorApp.article.livrePolice">Livre Police</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let article of articles ;trackBy: trackId">
+                <td><a [routerLink]="['../article', article.id ]">{{article.id}}</a></td>
+                <td>{{article.reference}}</td>
+                <td>{{article.marque}}</td>
+                <td>{{article.metal}}</td>
+                <td>{{article.stock}}</td>
+                <td>{{article.prixAchat}}</td>
+                <td>{{article.poids}}</td>
+                <td>{{article.dateAchat | date:'mediumDate'}}</td>
+                <td>{{article.livrePolice}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../article', article.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="articles && articles.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>
