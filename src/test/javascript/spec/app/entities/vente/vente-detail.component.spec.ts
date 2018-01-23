@@ -1,6 +1,6 @@
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { JadorTestModule } from '../../../test.module';
 import { VenteDetailComponent } from '../../../../../../main/webapp/app/entities/vente/vente-detail.component';

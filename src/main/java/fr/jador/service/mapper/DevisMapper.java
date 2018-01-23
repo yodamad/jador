@@ -13,7 +13,7 @@ public interface DevisMapper extends EntityMapper<DevisDTO, Devis> {
 
     @Mapping(source = "article.id", target = "articleId")
     @Mapping(source = "fournisseurRef.id", target = "fournisseurRefId")
-    DevisDTO toDto(Devis devis); 
+    DevisDTO toDto(Devis devis);
 
     @Mapping(source = "articleId", target = "article")
     @Mapping(source = "fournisseurRefId", target = "fournisseurRef")

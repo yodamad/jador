@@ -4,7 +4,7 @@
       "packageName": "fr.jador",
       "nativeLanguage": "fr"
     },
-    "jhipsterVersion": "4.12.0",
+    "jhipsterVersion": "4.13.3",
     "baseName": "jador",
     "packageName": "fr.jador",
     "packageFolder": "fr/jador",
@@ -39,6 +39,8 @@
     "nativeLanguage": "fr",
     "languages": [
       "fr"
-    ]
+    ],
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true
   }
 }
