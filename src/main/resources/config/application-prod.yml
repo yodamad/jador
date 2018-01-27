@@ -104,8 +104,8 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: jador@jador.heroku.com
-        base-url: http://jador.heroku.com # Modify according to your server's URL
+        from: jador@jador.herokuapp.com
+        base-url: https://jador.herokuapp.com # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite:
