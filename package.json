@@ -29,7 +29,8 @@
     "rxjs": "5.5.5",
     "swagger-ui": "3.4.2",
     "tether": "1.4.0",
-    "zone.js": "0.8.16"
+    "zone.js": "0.8.16",
+    "snyk": "^1.332.1"
   },
   "devDependencies": {
     "@angular/cli": "1.6.0",
@@ -106,6 +107,9 @@
     "webpack:test": "yarn run test",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
-    "postinstall": "node node_modules/phantomjs-prebuilt/install.js"
-  }
+    "postinstall": "node node_modules/phantomjs-prebuilt/install.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
